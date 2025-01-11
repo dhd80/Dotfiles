@@ -1,14 +1,40 @@
 unsetopt nomatch 
 
+## Shell prompt
+# Starship
 eval "$(starship init zsh)"
 
-# ZSH Environment
-source /usr/local/Cellar/zsh-autosuggestions/0.7.0/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fpath=(/usr/local/Cellar/zsh-completions/0.34.0/share/zsh-completions $fpath)
-source /usr/local/Cellar/zsh-fast-syntax-highlighting/1.55/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# Pure
+#autoload -U promptinit; promptinit
+#prompt pure
 
+
+## Shell packages
+# ZSH Environment
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+rm -f ~/.zcompdump; compinit && chmod go-w '/usr/local/share' && chmod -R go-w '/usr/local/share/zsh'
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+source /usr/local/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+
+## Package manager- / Dev settings
 # Variables
-APPDIR="/Volumes/Tabernacle/Applications"
+APPDIR="~/Applications"
 
 # Environment Variables
 export PATH="$PATH:/Users/$USER/.dotnet/tools"

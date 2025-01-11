@@ -1,0 +1,6 @@
+cask "dotnet-sdk"
+cask "visual-studio-code"
+cask "postman"
+cask "rider"
+cask "docker"
+

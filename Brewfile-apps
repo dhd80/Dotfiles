@@ -1,0 +1,5 @@
+cask "microsoft-auto-update"
+cask "microsoft-excel"
+cask "microsoft-teams"
+cask "microsoft-word"
+cask "superduper"
